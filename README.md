@@ -8,6 +8,3 @@ This is an Excel spreadsheet that can be used to keep track of your recurring ex
 Other features include:
 * Sum of total expenditures per vendor
 * Displays how many days since last payment
-
-
-
