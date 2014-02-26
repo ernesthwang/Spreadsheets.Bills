@@ -13,7 +13,7 @@ Other features include:
 ## How to use this spreadsheet
 
 ### Set the initial dates
-**(info coming soon)
+*(info coming soon)*
 
 
 ## Table Data
