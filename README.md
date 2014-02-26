@@ -9,11 +9,26 @@ Other features include:
 * Sum of total expenditures per vendor
 * Displays how many days since last payment
 
-
 ## How to use this spreadsheet
 
 ### Set the initial dates
-*(info coming soon)*
+Pick a date approximately 30 days from the day you start tracking.  This way, you don't start with a blank spreadsheet.  I figure a month is pretty easy to fill out, because you most likely need to look at one bank statement to back-fill the data in the spreadsheet.
+
+### Set your column values
+Figure out what your recurring bills are and enter the following:
+* Name (Row 8)
+* Payment Threshold in Days (Row 4)
+* Due Date/Day/Month (Row 6)
+
+There is more information about what these values mean in the Table Data section below.
+
+When overwriting columns, start on the left and add new vendors to the right.  Don't delete the first column of a section, because it also contains the Cycle name (e.g. "Monthly").  Don't delete the spacer column that separates two sections (e.g. Column E), because you're going to want to copy that column when you add new vendors.
+
+### Delete unused sample vendors
+So you've entered all your bill recipients and you have a few columns left over?  Delete them.  But make sure you leave a space between sections.  If you're not using a section (e.g. You don't have any bills that are due weekly), then go ahead and delete that section along with the spacer column.
+
+### Start entering data!
+This is where the fun begins!  Check your last bank statement.  Log into your bank's web site.  Log into mint.com.  Check your Quicken Home & Business reports (Do people still use Quicken?).  Find the data you need and enter it in the appropriate cells.  Just enter the amount in the cell that corresponds to the vendor and date.  In the screenshot above, the cell G167 corresponds to a $120 cable bill payment made on 6 Feb 2014.
 
 
 ## Table Data
@@ -81,8 +96,20 @@ Here's where you enter your data.
 ### Columns
 
 #### Column A: Day of Week
+This is a duplicate of column B, just formatted differently.
+
+The formula for cell A9 is
+`=B9`
 
 #### Column B: Date
+You need to seed this column with values that reflect your start date.  Cell B9 should be approximately one month before your start date.  Then you would need to back-fill the data in the first 30 data rows.
+
+You should only need to set the value of cell B9.  There are formulas in cells B10 and higher that just add one day to the column above it.  The formula for cell B10.
+
+`=B9 + 1`
+
+NOTE: I am currently trying to figure out a way to have the values turn blue for Saturday and Sunday using conditional formatting.  If your start date isn't a Monday, your dates will look goofy.
+
 
 #### Column C: "Day Has Occurred" Flag
 This is a calculated field that has a green background and displays the value "1" once the day has come.  Even though this column may look empty, there should be values for every day.  The formula for the cell in this column should be
@@ -96,10 +123,20 @@ Here's where you enter your data.
 
 
 ## Notes
+
+### Be careful when copying/pasting
+What looks like a blank cell might actually contain data.  Also, some of the blank cells may have some formatting in it that needs to be copied.  If you want to add new columns, your best bet is to copy the blank column for that section and perform an Insert Paste to preserve formatting.
+
+
+### Make sure new dates contain expected formulae
+If you run out of dates, you can add more, but make sure you copy the formulas in columns A and C.
+
+
+### Why isn't this spreadsheet in Google Docs?
 I've tried to convert this document for use in Google Docs, but I ran into two main issues.
 
 Google Spreadsheets doesn't support some of the formulae used here, such as MATCH and ROW (not 100% sure about ROW, though).
 
 Google Spreadsheets don't like large files.  My current spreadsheet has 1800 rows in it and I've found Google Spreadsheets to be very slow when navigating large documents.
 
-It's been a while since I've tried converting this, so some of these issues may have been resolved, but migrating this would be a project that I tackle in the future.
+It's been a while since I've tried converting this, so some of these issues may have been resolved, but migrating this would be a project that I tackle in the future.  Besides, I love Excel.
